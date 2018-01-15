@@ -1,0 +1,187 @@
+Version 1.5.3 - DD/MM/YYYY
+
+- Project published on GitHub.
+
+
+
+Version 1.5.2 - 31/07/2016
+
+- Fixed some memory leaks that occurred when firing certain events.
+
+
+
+Version 1.5.1 - 30/01/2016
+
+- FIX: The control could crash during OLE drag'n'drop.
+- FIX: The control could crash the other process during OLE drag'n'drop, especially when IOLEDataObject::SetDropDescription() had been called.
+
+
+
+Version 1.5.0 - 23/01/2016
+
+- Added the IStatusBar::FinishOLEDragDrop method. It should not be used if not really needed. It can be used to hide the drag image if execution of the OLEDragDrop event takes a long time or if a message is displayed from within this event.
+- Initial support for Windows 10.
+
+
+
+Version 1.4.0 - 17/07/2014
+
+- Added the XClick, and XDblClick events for support of the extended mouse buttons.
+- Extended the Mouse* events to support the extended mouse buttons.
+- FIX: The Font and MouseIcon properties could leak GDI resources.
+- Initial support for Windows 8.1.
+
+
+
+Version 1.3.3 - 27/03/2013
+
+- FIX: The ResizedControlWindow event was not fired when it should have been fired.
+- Initial support for Windows 8.
+
+
+
+Version 1.3.2 - 03/04/2012
+
+- FIX: Clicking the control no longer raises the Validate event of the currently focused control.
+
+
+
+Version 1.3.1 - 21/05/2011
+
+- Fixed a bug that could make other, invisible windows visible again under rather complex circumstances. I'm not sure this could happen practically, but in theory it could happen and practically it did happen for the Frame control which had the same bug.
+- FIX: The ResizedControlWindow event was fired when actually nothing had changed.
+
+
+
+Version 1.3.0 - 08/01/2011
+
+- FIX: The control could crash when it was destroyed.
+- Switched to Visual C++ 2010 and dropped support for Windows 2000.
+
+
+
+Version 1.2.3 - 18/10/2010
+
+- FIX: The control could crash with an access violation while trying to display the tool tip text. This was caused by a bug in comctl32.dll that now is being worked around.
+
+
+
+Version 1.2.2 - 05/07/2010
+
+- Added a new property page that can be used to enter Unicode texts at design time.
+- FIX: IOLEDataObject::SetDropDescription could cause crashes in other programs.
+
+
+
+Version 1.2.1 - 02/01/2010
+
+- Improved support for Aero drag images.
+- Improved performance.
+- FIX: The 'shift' parameter that many events have, often missed the ALT key.
+- Deploy (stripped) symbols with the binaries to make debugging easier. This are the pdb files in case you wonder.
+
+
+
+Version 1.2.0 - 25/07/2009
+
+- Initial support for Windows 7.
+- Extended the DropDescriptionIconConstants enumeration by 'ddiUseDefault'.
+- FIX: Drop descriptions didn't work as expected if the drag source was a 64 bit app.
+- Massively reduced the usage of GDI handles.
+
+
+
+Version 1.1.1 - 30/10/2008
+
+- FIX: Displayed key states could be wrong.
+- FIX: The last panel could be drawn wrong if its content was not left-aligned.
+- FIX: Ignore calls to IOLEDataObject::SetDropDescription() if the drag image is in classic style.
+- FIX: Changing the IStatusBar::BackColor property could fail if its current value was -1.
+- Fixed some GDI handle leaks.
+- Fixed some drawing glitches.
+- Slightly changed handling of the situation where the user presses a mouse button, drags the mouse out of the control's client area and releases the button.
+- Removed the data-binding stuff (it was probably broken anyway).
+- Switched to Visual C++ 2008 and dropped support for Windows 9x, Me and NT 4.0.
+- Improved the documentation.
+
+
+
+Version 1.1.0 - 04/12/2007
+
+- Added the IOLEDataObject::GetDropDescription() method.
+- Added the IOLEDataObject::SetDropDescription() method.
+- Removed the limitation to 127 characters for panel texts for comctl32.dll version 6.10 or higher.
+- FIX: Changes were not applied implicitly when jumping between multiple instances of the control with the property pages opened.
+- Improved the documentation.
+
+
+
+Version 1.0.6 - 28/02/2007
+
+- Decreased the binaries' size.
+- Improved the documentation.
+- Ported the WTL samples to WTL 8.0.
+- Made the samples DPI aware.
+- Linked the new bug tracking system.
+
+
+
+Version 1.0.5 - 23/09/2006
+
+- FIX: The "Font" and "MouseIcon" properties didn't work as expected.
+- Improved Vista compatibility.
+- Improved the property pages.
+- Improved setup.
+
+
+
+Version 1.0.4 - 11/06/2006
+
+- FIX: Changing the font could crash the control.
+- FIX: Moving the control without resizing it could lead to a control width or height of 0.
+- Fixed some repaint problems.
+- Improved IStatusBar::Font and IStatusBar::MouseIcon.
+- Improved IStatusBar::LoadSettingsFromFile().
+- Changed the control's default size to 100x23.
+- Minor bugfixes.
+
+
+
+Version 1.0.3 - 18/12/2005
+
+- Switched to Visual C++ 2005; fixed compiler errors and warnings.
+- FIX: The control crashed if it was destroyed from within an event handler.
+- FIX: The IStatusBar::DontRedraw property interfered with the control's Visible property.
+- Ported the WTL7 samples to Visual C++ 2005.
+
+
+
+Version 1.0.2 - 14/11/2005
+
+- Added some C++/WTL samples.
+- FIX: The behavior of the IStatusBar::Enabled property was different from other controls.
+- Improved Drag'n'Drop support.
+- Improved documentation.
+
+
+
+Version 1.0.1 - 28/09/2005
+
+- Renamed the _IStatusBarEvents::DestroyedControl event to _IStatusBarEvents::DestroyedControlWindow.
+- Renamed the _IStatusBarEvents::RecreatedControl event to _IStatusBarEvents::RecreatedControlWindow.
+- Renamed the _IStatusBarEvents::ResizedControl event to _IStatusBarEvents::ResizedControlWindow.
+- Improved control resizing performance.
+- Revised the Font property.
+- Revised documentation.
+- FIX: The Font property leaked GDI objects.
+- FIX: The sample projects crashed if you clicked the "Show property pages..." button and selected the Picture property page.
+- FIX: The deMouseEvents flag blocked not only the control's mouse events but also its click events.
+- Some minor bugfixes.
+- Improved documentation.
+- Improved code quality.
+
+
+
+Version 1.0.0 - 14/09/2005
+
+- First public release.
