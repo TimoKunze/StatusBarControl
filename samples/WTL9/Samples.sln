@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{6E284299-0DA6-4BB3-B6EB-A84C5C09C088}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Alignment", "General\Alignment\Alignment.vcxproj", "{A4BC62ED-DBB5-4E53-90D0-BC807A7F0260}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EmbeddedProgressBar", "General\Embedded ProgressBar\EmbeddedProgressBar.vcxproj", "{B9121843-8C81-4B3D-B5D9-46DF27F09C09}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Events", "General\Events\Events.vcxproj", "{F2FE2FBB-AAAC-4344-B016-340674F7E8F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4BC62ED-DBB5-4E53-90D0-BC807A7F0260}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A4BC62ED-DBB5-4E53-90D0-BC807A7F0260}.Debug|Win32.Build.0 = Debug|Win32
+		{A4BC62ED-DBB5-4E53-90D0-BC807A7F0260}.Release|Win32.ActiveCfg = Release|Win32
+		{A4BC62ED-DBB5-4E53-90D0-BC807A7F0260}.Release|Win32.Build.0 = Release|Win32
+		{B9121843-8C81-4B3D-B5D9-46DF27F09C09}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B9121843-8C81-4B3D-B5D9-46DF27F09C09}.Debug|Win32.Build.0 = Debug|Win32
+		{B9121843-8C81-4B3D-B5D9-46DF27F09C09}.Release|Win32.ActiveCfg = Release|Win32
+		{B9121843-8C81-4B3D-B5D9-46DF27F09C09}.Release|Win32.Build.0 = Release|Win32
+		{F2FE2FBB-AAAC-4344-B016-340674F7E8F4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F2FE2FBB-AAAC-4344-B016-340674F7E8F4}.Debug|Win32.Build.0 = Debug|Win32
+		{F2FE2FBB-AAAC-4344-B016-340674F7E8F4}.Release|Win32.ActiveCfg = Release|Win32
+		{F2FE2FBB-AAAC-4344-B016-340674F7E8F4}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A4BC62ED-DBB5-4E53-90D0-BC807A7F0260} = {6E284299-0DA6-4BB3-B6EB-A84C5C09C088}
+		{B9121843-8C81-4B3D-B5D9-46DF27F09C09} = {6E284299-0DA6-4BB3-B6EB-A84C5C09C088}
+		{F2FE2FBB-AAAC-4344-B016-340674F7E8F4} = {6E284299-0DA6-4BB3-B6EB-A84C5C09C088}
+	EndGlobalSection
+EndGlobal

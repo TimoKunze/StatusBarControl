@@ -1,0 +1,42 @@
+HKCR
+{
+	StatBarU.StatusBar.1 = s 'TimoSoft StatusBar Control 1.5 (Unicode)'
+	{
+		CLSID = s '{00C4A3B3-F304-4eba-913E-2EAA6BDD54AE}'
+		'Insertable'
+	}
+	StatBarU.StatusBar = s 'TimoSoft StatusBar Control 1.5 (Unicode)'
+	{
+		CLSID = s '{00C4A3B3-F304-4eba-913E-2EAA6BDD54AE}'
+		CurVer = s 'StatBarU.StatusBar.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {00C4A3B3-F304-4eba-913E-2EAA6BDD54AE} = s 'TimoSoft StatusBar Control 1.5 (Unicode)'
+		{
+			ProgID = s 'StatBarU.StatusBar.1'
+			VersionIndependentProgID = s 'StatBarU.StatusBar'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove 'Implemented Categories'
+			{
+				'{40FC6ED4-2438-11CF-A3DB-080036F12502}'
+				'{0DE86A57-2BAA-11CF-A229-00AA003D7352}'
+				'{0DE86A53-2BAA-11CF-A229-00AA003D7352}'
+			}
+			val AppID = s '%APPID%'
+			ForceRemove 'Control'
+			ForceRemove 'Insertable'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+				'1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{A10D6B26-9A8F-4a87-A2D1-1D8C9EED0967}'
+			'Version' = s '1.5'
+		}
+	}
+}

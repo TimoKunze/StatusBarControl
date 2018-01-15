@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StatBar", "StatBar.vcxproj", "{1CB90092-EFD2-4D8D-AF68-2BF80C7EC83C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug - ANSI|Win32 = Debug - ANSI|Win32
+		Debug - Unicode|Win32 = Debug - Unicode|Win32
+		Release - ANSI|Win32 = Release - ANSI|Win32
+		Release - Unicode|Win32 = Release - Unicode|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CB90092-EFD2-4D8D-AF68-2BF80C7EC83C}.Debug - ANSI|Win32.ActiveCfg = Debug - ANSI|Win32
+		{1CB90092-EFD2-4D8D-AF68-2BF80C7EC83C}.Debug - Unicode|Win32.ActiveCfg = Debug - Unicode|Win32
+		{1CB90092-EFD2-4D8D-AF68-2BF80C7EC83C}.Release - ANSI|Win32.ActiveCfg = Release - ANSI|Win32
+		{1CB90092-EFD2-4D8D-AF68-2BF80C7EC83C}.Release - Unicode|Win32.ActiveCfg = Release - Unicode|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

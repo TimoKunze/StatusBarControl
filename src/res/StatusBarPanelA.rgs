@@ -1,0 +1,25 @@
+HKCR
+{
+	StatBarA.StatusBarPanel.1 = s 'TimoSoft StatusBarPanel Class 1.5 (ANSI)'
+	{
+		CLSID = s '{72208630-41D0-479f-B075-7727847698DE}'
+	}
+	StatBarA.StatusBarPanel = s 'TimoSoft StatusBarPanel Class (ANSI)'
+	{
+		CLSID = s '{72208630-41D0-479f-B075-7727847698DE}'
+		CurVer = s 'StatBarA.StatusBarPanel.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {72208630-41D0-479f-B075-7727847698DE} = s 'TimoSoft StatusBarPanel Class (ANSI)'
+		{
+			ProgID = s 'StatBarA.StatusBarPanel.1'
+			VersionIndependentProgID = s 'StatBarA.StatusBarPanel'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{9262F940-61BD-45dd-A6A2-FF0054F6CF9C}'
+		}
+	}
+}

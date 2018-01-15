@@ -1,0 +1,25 @@
+HKCR
+{
+	StatBarA.StringProperties.1 = s 'TimoSoft StringProperties Class 1.5 (ANSI)'
+	{
+		CLSID = s '{A6CC67AE-6F81-4f52-9D8F-0FA26A4091AC}'
+	}
+	StatBarA.StringProperties = s 'TimoSoft StringProperties Class (ANSI)'
+	{
+		CLSID = s '{A6CC67AE-6F81-4f52-9D8F-0FA26A4091AC}'
+		CurVer = s 'StatBarA.StringProperties.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A6CC67AE-6F81-4f52-9D8F-0FA26A4091AC} = s 'TimoSoft StringProperties Class (ANSI)'
+		{
+			ProgID = s 'StatBarA.StringProperties.1'
+			VersionIndependentProgID = s 'StatBarA.StringProperties'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{9262F940-61BD-45dd-A6A2-FF0054F6CF9C}'
+		}
+	}
+}

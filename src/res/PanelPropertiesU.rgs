@@ -1,0 +1,25 @@
+HKCR
+{
+	StatBarU.PanelProperties.1 = s 'TimoSoft PanelProperties Class 1.5 (Unicode)'
+	{
+		CLSID = s '{5E52FEEA-9653-44c7-BD00-EA7B18D7A7E5}'
+	}
+	StatBarU.PanelProperties = s 'TimoSoft PanelProperties Class (Unicode)'
+	{
+		CLSID = s '{5E52FEEA-9653-44c7-BD00-EA7B18D7A7E5}'
+		CurVer = s 'StatBarU.PanelProperties.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5E52FEEA-9653-44c7-BD00-EA7B18D7A7E5} = s 'TimoSoft PanelProperties Class (Unicode)'
+		{
+			ProgID = s 'StatBarU.PanelProperties.1'
+			VersionIndependentProgID = s 'StatBarU.PanelProperties'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A10D6B26-9A8F-4a87-A2D1-1D8C9EED0967}'
+		}
+	}
+}

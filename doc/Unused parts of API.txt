@@ -1,0 +1,1 @@
+The following parts of the msctls_statusbar32 API (Windows 10) are not used:

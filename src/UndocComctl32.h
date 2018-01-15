@@ -1,0 +1,13 @@
+//////////////////////////////////////////////////////////////////////
+/// \file UndocComctl32.h
+/// \author Timo "TimoSoft" Kunze
+/// \brief <em>Undocumented comctl32.dll stuff</em>
+///
+/// Declaration of some comctl32.dll internals that we're using.
+///
+/// \sa StatusBar
+//////////////////////////////////////////////////////////////////////
+
+#pragma once
+
+
