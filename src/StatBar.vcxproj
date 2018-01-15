@@ -547,25 +547,11 @@
     <None Include="StatBarA.def" />
     <None Include="StatBarU.def" />
     <None Include="res\About.jpg" />
-    <None Include="res\CommonPropertiesA_in.rgs" />
-    <None Include="res\CommonPropertiesU_in.rgs" />
-    <None Include="res\OLEDataObjectA_in.rgs" />
-    <None Include="res\OLEDataObjectU_in.rgs" />
-    <None Include="res\PanelPropertiesA_in.rgs" />
-    <None Include="res\PanelPropertiesU_in.rgs" />
     <None Include="res\Paypal.jpg" />
     <None Include="res\StatBarA.rgs" />
     <None Include="res\StatBarU.rgs" />
     <None Include="res\StatusBarA.bmp" />
-    <None Include="res\StatusBarA_in.rgs" />
-    <None Include="res\StatusBarPanelA_in.rgs" />
-    <None Include="res\StatusBarPanelsA_in.rgs" />
-    <None Include="res\StatusBarPanelsU_in.rgs" />
-    <None Include="res\StatusBarPanelU_in.rgs" />
     <None Include="res\StatusBarU.bmp" />
-    <None Include="res\StatusBarU_in.rgs" />
-    <None Include="res\StringPropertiesA_in.rgs" />
-    <None Include="res\StringPropertiesU_in.rgs" />
     <None Include="res\ToolBar disabled.bmp" />
     <None Include="res\ToolBar enabled.bmp" />
     <None Include="res\CommonPropertiesA.rgs" />
@@ -582,26 +568,9 @@
     <None Include="res\StatusBarU.rgs" />
     <None Include="res\StringPropertiesA.rgs" />
     <None Include="res\StringPropertiesU.rgs" />
-    <None Include="..\doc\Changelog.txt" />
-    <None Include="..\doc\License.rtf" />
-    <None Include="..\doc\License.txt" />
-    <None Include="..\doc\Style.txt" />
-    <None Include="..\doc\TODO.txt" />
     <None Include="..\doc\Unused parts of API.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="StatBarA_in.idl">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - ANSI|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - Unicode|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - ANSI|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - Unicode|Win32'">true</ExcludedFromBuild>
-    </Midl>
-    <Midl Include="StatBarU_in.idl">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - ANSI|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - Unicode|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - ANSI|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - Unicode|Win32'">true</ExcludedFromBuild>
-    </Midl>
     <Midl Include="StatBarA.idl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - Unicode|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - Unicode|Win32'">true</ExcludedFromBuild>
@@ -638,7 +607,6 @@
     <ClInclude Include="UndocComctl32.h" />
     <ClInclude Include="StatBarA.h" />
     <ClInclude Include="StatBarU.h" />
-    <ClInclude Include="res\resource_in.h" />
     <ClInclude Include="res\resource.h" />
   </ItemGroup>
   <ItemGroup>

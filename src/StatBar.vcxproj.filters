@@ -21,10 +21,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
     </Filter>
-    <Filter Include="Resource Files\Generated Files">
-      <UniqueIdentifier>{4d003192-8958-475a-85da-e0d5483cc3b3}</UniqueIdentifier>
-      <SourceControlFiles>False</SourceControlFiles>
-    </Filter>
     <Filter Include="Documents">
       <UniqueIdentifier>{41202e90-ed5a-4b92-9856-ca40ae26ec21}</UniqueIdentifier>
     </Filter>
@@ -86,24 +82,6 @@
     <None Include="res\About.jpg">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="res\CommonPropertiesA_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\CommonPropertiesU_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\OLEDataObjectA_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\OLEDataObjectU_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\PanelPropertiesA_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\PanelPropertiesU_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="res\Paypal.jpg">
       <Filter>Resource Files</Filter>
     </None>
@@ -116,31 +94,7 @@
     <None Include="res\StatusBarA.bmp">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="res\StatusBarA_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\StatusBarPanelA_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\StatusBarPanelsA_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\StatusBarPanelsU_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\StatusBarPanelU_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="res\StatusBarU.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\StatusBarU_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\StringPropertiesA_in.rgs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\StringPropertiesU_in.rgs">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="res\ToolBar disabled.bmp">
@@ -149,79 +103,58 @@
     <None Include="res\ToolBar enabled.bmp">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="res\CommonPropertiesA.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\CommonPropertiesU.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\OLEDataObjectA.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\OLEDataObjectU.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\PanelPropertiesA.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\PanelPropertiesU.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\StatusBarA.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\StatusBarPanelA.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\StatusBarPanelsA.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\StatusBarPanelsU.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\StatusBarPanelU.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\StatusBarU.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\StringPropertiesA.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="res\StringPropertiesU.rgs">
-      <Filter>Resource Files\Generated Files</Filter>
-    </None>
-    <None Include="..\doc\Changelog.txt">
-      <Filter>Documents</Filter>
-    </None>
-    <None Include="..\doc\License.rtf">
-      <Filter>Documents</Filter>
-    </None>
-    <None Include="..\doc\License.txt">
-      <Filter>Documents</Filter>
-    </None>
-    <None Include="..\doc\Style.txt">
-      <Filter>Documents</Filter>
-    </None>
-    <None Include="..\doc\TODO.txt">
-      <Filter>Documents</Filter>
-    </None>
     <None Include="..\doc\Unused parts of API.txt">
       <Filter>Documents</Filter>
     </None>
+    <None Include="res\CommonPropertiesA.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\StringPropertiesU.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\CommonPropertiesU.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\OLEDataObjectA.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\OLEDataObjectU.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\PanelPropertiesA.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\PanelPropertiesU.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\StatusBarA.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\StatusBarPanelA.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\StatusBarPanelsA.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\StatusBarPanelsU.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\StatusBarPanelU.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\StatusBarU.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\StringPropertiesA.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="StatBarA_in.idl">
-      <Filter>Source Files</Filter>
-    </Midl>
-    <Midl Include="StatBarU_in.idl">
-      <Filter>Source Files</Filter>
-    </Midl>
     <Midl Include="StatBarA.idl">
-      <Filter>Source Files\Generated Files</Filter>
+      <Filter>Source Files</Filter>
     </Midl>
     <Midl Include="StatBarU.idl">
-      <Filter>Source Files\Generated Files</Filter>
+      <Filter>Source Files</Filter>
     </Midl>
   </ItemGroup>
   <ItemGroup>
@@ -303,11 +236,8 @@
     <ClInclude Include="StatBarU.h">
       <Filter>Header Files\Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="res\resource_in.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="res\resource.h">
-      <Filter>Resource Files\Generated Files</Filter>
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
