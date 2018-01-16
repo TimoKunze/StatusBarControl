@@ -1,5 +1,5 @@
 <p align=center>
-  <a href="https://github.com/TimoKunze/StatusBarControl/releases/tag/1.5.4">
+  <a href="https://github.com/TimoKunze/StatusBarControl/releases/tag/1.5.3">
     <img alt="Release 1.5.3 Release" src="https://img.shields.io/badge/release-1.5.3-0688CB.svg">
   </a>
   <a href="https://github.com/TimoKunze/StatusBarControl/releases">
