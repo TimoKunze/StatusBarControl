@@ -1420,13 +1420,25 @@ void StatusBar::OnFinalMessage(HWND /*hWnd*/)
 		HeapFree(GetProcessHeap(), 0, pToolTipBuffer);
 		pToolTipBuffer = NULL;
 	}
+	if(properties.panels) {
+		properties.panels->Release();
+		properties.panels = NULL;
+	}
+	if(properties.simplePanel) {
+		properties.simplePanel->Release();
+		properties.simplePanel = NULL;
+	}
 	Release();
 }
 
 STDMETHODIMP StatusBar::IOleObject_SetClientSite(LPOLECLIENTSITE pClientSite)
 {
-	properties.panels->SetOwner(this);
-	properties.simplePanel->SetOwner(this);
+	if(properties.panels) {
+		properties.panels->SetOwner(this);
+	}
+	if(properties.simplePanel) {
+		properties.simplePanel->SetOwner(this);
+	}
 
 	HRESULT hr = CComControl<StatusBar>::IOleObject_SetClientSite(pClientSite);
 
