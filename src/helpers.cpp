@@ -956,7 +956,7 @@ HIMAGELIST SetupStateImageList(HIMAGELIST hStateImageList)
 					WTL::CRect rc(0, 0, iconSize.cx, iconSize.cy);
 					SIZE partSize;
 					themingEngine.GetThemePartSize(memoryDC, BP_CHECKBOX, CBS_MIXEDNORMAL, NULL, TS_TRUE, &partSize);
-					rc.OffsetRect((iconSize.cx - partSize.cx) / 2, (iconSize.cy - partSize.cy) / 2);
+					rc.OffsetRect((iconSize.cx - partSize.cx) >> 1, (iconSize.cy - partSize.cy) >> 1);
 					themingEngine.DrawThemeBackground(memoryDC, BP_CHECKBOX, CBS_MIXEDNORMAL, &rc);
 
 					memoryDC.SelectBitmap(hPreviousBitmap);

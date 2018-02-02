@@ -309,13 +309,13 @@ LRESULT ColorButton::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LP
 
 	// draw the arrow
 	WTL::CRect arrowRectangle;
-	arrowRectangle.left = drawingRectangle.right - ARROWWIDTH - GetSystemMetrics(SM_CXEDGE) / 2;
-	arrowRectangle.top = (drawingRectangle.bottom + drawingRectangle.top) / 2 - ARROWHEIGHT / 2;
+	arrowRectangle.left = drawingRectangle.right - ARROWWIDTH - (GetSystemMetrics(SM_CXEDGE) >> 1);
+	arrowRectangle.top = (drawingRectangle.bottom + drawingRectangle.top - ARROWHEIGHT) >> 1;
 	arrowRectangle.right = arrowRectangle.left + ARROWWIDTH;
-	arrowRectangle.bottom = (drawingRectangle.bottom + drawingRectangle.top) / 2 + ARROWHEIGHT / 2;
+	arrowRectangle.bottom = (drawingRectangle.bottom + drawingRectangle.top + ARROWHEIGHT) >> 1;
 
 	DrawArrow(targetDC, arrowRectangle, 0, (pDrawItemData->itemState & ODS_DISABLED) ? GetSysColor(COLOR_GRAYTEXT) : GetSysColor(COLOR_BTNTEXT));
-	drawingRectangle.right = arrowRectangle.left - GetSystemMetrics(SM_CXEDGE) / 2;
+	drawingRectangle.right = arrowRectangle.left - (GetSystemMetrics(SM_CXEDGE) >> 1);
 
 	// draw the separator
 	targetDC.DrawEdge(&drawingRectangle, EDGE_ETCHED, BF_RIGHT);
@@ -720,7 +720,7 @@ void ColorButton::SetPickerWindowSize(void)
 	pickerProperties.defaultColorTextBoundingRectangle = WTL::CRect(WTL::CPoint(0, 0), WTL::CSize(minimumWidth, HasDefaultColorText() ? textSize.cy : 0));
 
 	// initialize the color box rectangle
-	pickerProperties.colorGridBoundingRectangle = WTL::CRect(WTL::CPoint((minimumWidth - totalWidth) / 2, pickerProperties.defaultColorTextBoundingRectangle.bottom), WTL::CSize(totalWidth, pickerProperties.numberOfRows * pickerProperties.colorCellSize.cy));
+	pickerProperties.colorGridBoundingRectangle = WTL::CRect(WTL::CPoint((minimumWidth - totalWidth) >> 1, pickerProperties.defaultColorTextBoundingRectangle.bottom), WTL::CSize(totalWidth, pickerProperties.numberOfRows * pickerProperties.colorCellSize.cy));
 
 	// create the rectangle for the "More Colors" text
 	pickerProperties.moreColorsTextBoundingRectangle = WTL::CRect(WTL::CPoint(0, pickerProperties.colorGridBoundingRectangle.bottom), WTL::CSize(minimumWidth, HasMoreColorsText() ? textSize.cy : 0));
@@ -1021,7 +1021,7 @@ void ColorButton::DrawArrow(CDCHandle& targetDC, const RECT& boundingRectangle, 
 			corners[0].y = boundingRectangle.top;
 			corners[1].x = boundingRectangle.right;
 			corners[1].y = boundingRectangle.top;
-			corners[2].x = (boundingRectangle.left + boundingRectangle.right) / 2;
+			corners[2].x = (boundingRectangle.left + boundingRectangle.right) >> 1;
 			corners[2].y = boundingRectangle.bottom;
 			break;
 		case 1:
@@ -1030,7 +1030,7 @@ void ColorButton::DrawArrow(CDCHandle& targetDC, const RECT& boundingRectangle, 
 			corners[0].y = boundingRectangle.bottom;
 			corners[1].x = boundingRectangle.right;
 			corners[1].y = boundingRectangle.bottom;
-			corners[2].x = (boundingRectangle.left + boundingRectangle.right) / 2;
+			corners[2].x = (boundingRectangle.left + boundingRectangle.right) >> 1;
 			corners[2].y = boundingRectangle.top;
 			break;
 		case 2:
@@ -1040,7 +1040,7 @@ void ColorButton::DrawArrow(CDCHandle& targetDC, const RECT& boundingRectangle, 
 			corners[1].x = boundingRectangle.right;
 			corners[1].y = boundingRectangle.bottom;
 			corners[2].x = boundingRectangle.left;
-			corners[2].y = (boundingRectangle.top + boundingRectangle.bottom) / 2;
+			corners[2].y = (boundingRectangle.top + boundingRectangle.bottom) >> 1;
 			break;
 		case 3:
 			// pointing to the right
@@ -1049,7 +1049,7 @@ void ColorButton::DrawArrow(CDCHandle& targetDC, const RECT& boundingRectangle, 
 			corners[1].x = boundingRectangle.left;
 			corners[1].y = boundingRectangle.bottom;
 			corners[2].x = boundingRectangle.right;
-			corners[2].y = (boundingRectangle.top + boundingRectangle.bottom) / 2;
+			corners[2].y = (boundingRectangle.top + boundingRectangle.bottom) >> 1;
 			break;
 	}
 

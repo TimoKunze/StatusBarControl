@@ -1404,7 +1404,7 @@ HRESULT StatusBar::OnDraw(ATL_DRAWINFO& drawInfo)
 		get_Version(&buffer);
 		text += buffer;
 		SetTextAlign(drawInfo.hdcDraw, TA_CENTER | TA_BASELINE);
-		TextOut(drawInfo.hdcDraw, drawInfo.prcBounds->left + (drawInfo.prcBounds->right - drawInfo.prcBounds->left) / 2, drawInfo.prcBounds->top + (drawInfo.prcBounds->bottom - drawInfo.prcBounds->top) / 2, text, text.GetLength());
+		TextOut(drawInfo.hdcDraw, drawInfo.prcBounds->left + ((drawInfo.prcBounds->right - drawInfo.prcBounds->left) >> 1), drawInfo.prcBounds->top + ((drawInfo.prcBounds->bottom - drawInfo.prcBounds->top) >> 1), text, text.GetLength());
 	}
 
 	return S_OK;
