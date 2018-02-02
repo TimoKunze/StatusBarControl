@@ -1416,6 +1416,10 @@ void StatusBar::OnFinalMessage(HWND /*hWnd*/)
 		dragDropStatus.pDropTargetHelper->Release();
 		dragDropStatus.pDropTargetHelper = NULL;
 	}
+	if(pToolTipBuffer) {
+		HeapFree(GetProcessHeap(), 0, pToolTipBuffer);
+		pToolTipBuffer = NULL;
+	}
 	Release();
 }
 
