@@ -53,11 +53,11 @@ ColorButton::ColorTableEntry ColorButton::predefinedColors[] = {
     {RGB(0xFF, 0xFF, 0xFF), TEXT("White")}
 };
 
-const WTL::CSize ColorButton::innerTextCellBorderSize(3, 3);
-const WTL::CSize ColorButton::outerTextCellBorderSize(2, 2);
-const WTL::CSize ColorButton::innerColorCellBorderSize(2, 2);
-const WTL::CSize ColorButton::outerColorCellBorderSize(0, 0);
-const WTL::CSize ColorButton::colorCellContentSize(14, 14);
+const CSize ColorButton::innerTextCellBorderSize(3, 3);
+const CSize ColorButton::outerTextCellBorderSize(2, 2);
+const CSize ColorButton::innerColorCellBorderSize(2, 2);
+const CSize ColorButton::outerColorCellBorderSize(0, 0);
+const CSize ColorButton::colorCellContentSize(14, 14);
 
 
 #pragma warning(push)
@@ -262,7 +262,7 @@ LRESULT ColorButton::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LP
 	LPDRAWITEMSTRUCT pDrawItemData = reinterpret_cast<LPDRAWITEMSTRUCT>(lParam);
 
 	CDCHandle targetDC = pDrawItemData->hDC;
-	WTL::CRect drawingRectangle = pDrawItemData->rcItem;
+	CRect drawingRectangle = pDrawItemData->rcItem;
 
 	UINT frameState;
 	if(m_hTheme) {
@@ -302,13 +302,13 @@ LRESULT ColorButton::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LP
 
 	// draw the focus rectangle
 	if(((pDrawItemData->itemState & ODS_FOCUS) == ODS_FOCUS) || flags.colorPickerIsActive) {
-		WTL::CRect focusRectangle(drawingRectangle.left, drawingRectangle.top, drawingRectangle.right - 1, drawingRectangle.bottom);
+		CRect focusRectangle(drawingRectangle.left, drawingRectangle.top, drawingRectangle.right - 1, drawingRectangle.bottom);
 		targetDC.DrawFocusRect(&focusRectangle);
 	}
 	drawingRectangle.InflateRect(-GetSystemMetrics(SM_CXEDGE), -GetSystemMetrics(SM_CYEDGE));
 
 	// draw the arrow
-	WTL::CRect arrowRectangle;
+	CRect arrowRectangle;
 	arrowRectangle.left = drawingRectangle.right - ARROWWIDTH - (GetSystemMetrics(SM_CXEDGE) >> 1);
 	arrowRectangle.top = (drawingRectangle.bottom + drawingRectangle.top - ARROWHEIGHT) >> 1;
 	arrowRectangle.right = arrowRectangle.left + ARROWWIDTH;
@@ -359,7 +359,7 @@ LRESULT ColorButton::OnPickerPaint(UINT /*message*/, WPARAM /*wParam*/, LPARAM /
 	/* Draw a raised window edge. The extended window style WS_EX_WINDOWEDGE is supposed to do this, but
 	   for some reason isn't. */
 
-	WTL::CRect clientRectangle;
+	CRect clientRectangle;
 	dropDownWindow.GetClientRect(&clientRectangle);
 	if(pickerProperties.has3DBorder) {
 		CPen pen;
@@ -473,7 +473,7 @@ LRESULT ColorButton::OnPickerKeyDown(UINT /*message*/, WPARAM wParam, LPARAM /*l
 LRESULT ColorButton::OnPickerLButtonUp(UINT /*message*/, WPARAM /*wParam*/, LPARAM lParam, BOOL& /*wasHandled*/)
 {
 	// do a hit test
-	WTL::CPoint mousePosition(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+	CPoint mousePosition(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
 	int newSelection = PickerHitTest(mousePosition);
 
 	if(newSelection != pickerProperties.hoveredColorCell) {
@@ -487,7 +487,7 @@ LRESULT ColorButton::OnPickerLButtonUp(UINT /*message*/, WPARAM /*wParam*/, LPAR
 LRESULT ColorButton::OnPickerMouseMove(UINT /*message*/, WPARAM /*wParam*/, LPARAM lParam, BOOL& /*wasHandled*/)
 {
 	// do a hit test
-	WTL::CPoint mousePosition(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+	CPoint mousePosition(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
 	int newSelection = PickerHitTest(mousePosition);
 
 	if(newSelection != pickerProperties.hoveredColorCell) {
@@ -576,7 +576,7 @@ BOOL ColorButton::PopupPickerWindow(void)
 	ATOM wndClassAtom = RegisterClassEx(&windowClass);
 
 	// create the window
-	WTL::CRect buttonRectangle;
+	CRect buttonRectangle;
 	GetWindowRect(&buttonRectangle);
 	ModuleHelper::AddCreateWndData(&dropDownWindow.m_thunk.cd, &dropDownWindow);
 	dropDownWindow.m_hWnd = CreateWindowEx(0, MAKEINTATOM(wndClassAtom), TEXT(""), WS_POPUP, buttonRectangle.left, buttonRectangle.bottom, 100, 100, GetParent(), NULL, ModuleHelper::GetModuleInstance(), NULL);
@@ -717,17 +717,17 @@ void ColorButton::SetPickerWindowSize(void)
 	int minimumWidth = max(totalWidth, textSize.cx);
 
 	// create the rectangle for the "Automatic" text
-	pickerProperties.defaultColorTextBoundingRectangle = WTL::CRect(WTL::CPoint(0, 0), WTL::CSize(minimumWidth, HasDefaultColorText() ? textSize.cy : 0));
+	pickerProperties.defaultColorTextBoundingRectangle = CRect(CPoint(0, 0), CSize(minimumWidth, HasDefaultColorText() ? textSize.cy : 0));
 
 	// initialize the color box rectangle
-	pickerProperties.colorGridBoundingRectangle = WTL::CRect(WTL::CPoint((minimumWidth - totalWidth) >> 1, pickerProperties.defaultColorTextBoundingRectangle.bottom), WTL::CSize(totalWidth, pickerProperties.numberOfRows * pickerProperties.colorCellSize.cy));
+	pickerProperties.colorGridBoundingRectangle = CRect(CPoint((minimumWidth - totalWidth) >> 1, pickerProperties.defaultColorTextBoundingRectangle.bottom), CSize(totalWidth, pickerProperties.numberOfRows * pickerProperties.colorCellSize.cy));
 
 	// create the rectangle for the "More Colors" text
-	pickerProperties.moreColorsTextBoundingRectangle = WTL::CRect(WTL::CPoint(0, pickerProperties.colorGridBoundingRectangle.bottom), WTL::CSize(minimumWidth, HasMoreColorsText() ? textSize.cy : 0));
+	pickerProperties.moreColorsTextBoundingRectangle = CRect(CPoint(0, pickerProperties.colorGridBoundingRectangle.bottom), CSize(minimumWidth, HasMoreColorsText() ? textSize.cy : 0));
 
 	// get the current window position, and set the new size
-	WTL::CRect windowRectangle(pickerProperties.defaultColorTextBoundingRectangle.TopLeft(), pickerProperties.moreColorsTextBoundingRectangle.BottomRight());
-	WTL::CRect rc;
+	CRect windowRectangle(pickerProperties.defaultColorTextBoundingRectangle.TopLeft(), pickerProperties.moreColorsTextBoundingRectangle.BottomRight());
+	CRect rc;
 	dropDownWindow.GetWindowRect(&rc);
 	windowRectangle.OffsetRect(rc.TopLeft());
 
@@ -739,7 +739,7 @@ void ColorButton::SetPickerWindowSize(void)
 	pickerProperties.moreColorsTextBoundingRectangle.OffsetRect(pickerProperties.margins.left, pickerProperties.margins.top);
 
 	// get the screen rectangle
-	WTL::CRect screenRectangle(WTL::CPoint(0, 0), WTL::CSize(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN)));
+	CRect screenRectangle(CPoint(0, 0), CSize(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN)));
 	HMODULE hUser32 = GetModuleHandle(TEXT("user32.dll"));
 	if(hUser32) {
 		typedef HMONITOR WINAPI MonitorFromWindowFn(HWND, DWORD);
@@ -770,7 +770,7 @@ void ColorButton::SetPickerWindowSize(void)
 
 	// Bottom falling out of screen?  If so, move the whole popup above the parent window.
 	if(windowRectangle.bottom > screenRectangle.bottom) {
-		WTL::CRect parentWindowRectangle;
+		CRect parentWindowRectangle;
 		GetWindowRect(&parentWindowRectangle);
 		windowRectangle.OffsetRect(0, -((parentWindowRectangle.bottom - parentWindowRectangle.top) + (windowRectangle.bottom - windowRectangle.top)));
 	}
@@ -787,7 +787,7 @@ void ColorButton::SetupPickerToolTips(CToolTipCtrl& toolTipControl)
 
 	// add a tool for each cell
 	for(int i = 0; i < pickerProperties.numberOfPredefinedColors; ++i) {
-		WTL::CRect cellRectangle;
+		CRect cellRectangle;
 		if(!GetPickerCellRectangle(i, &cellRectangle)) {
 			continue;
 		}
@@ -909,7 +909,7 @@ void ColorButton::EndPickerSelection(BOOL cancelled)
 void ColorButton::DrawPickerCell(CDC& targetDC, int cellIndex)
 {
 	// get the drawing rect
-	WTL::CRect cellRectangle;
+	CRect cellRectangle;
 	if(!GetPickerCellRectangle(cellIndex, &cellRectangle)) {
 		return;
 	}

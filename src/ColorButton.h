@@ -271,23 +271,23 @@ protected:
 	/// \brief <em>Specifies the size of the inner border around a text cell</em>
 	///
 	/// \sa outerTextCellBorderSize, innerColorCellBorderSize
-	static const WTL::CSize innerTextCellBorderSize;
+	static const CSize innerTextCellBorderSize;
 	/// \brief <em>Specifies the size of the outer border around a text cell</em>
 	///
 	/// \sa innerTextCellBorderSize, outerColorCellBorderSize
-	static const WTL::CSize outerTextCellBorderSize;
+	static const CSize outerTextCellBorderSize;
 	/// \brief <em>Specifies the size of the inner border around a color cell</em>
 	///
 	/// \sa outerColorCellBorderSize, innerTextCellBorderSize, colorCellContentSize
-	static const WTL::CSize innerColorCellBorderSize;
+	static const CSize innerColorCellBorderSize;
 	/// \brief <em>Specifies the size of the outer border around a color cell</em>
 	///
 	/// \sa innerColorCellBorderSize, outerTextCellBorderSize, colorCellContentSize
-	static const WTL::CSize outerColorCellBorderSize;
+	static const CSize outerColorCellBorderSize;
 	/// \brief <em>Specifies the size of a color cell's content</em>
 	///
 	/// \sa innerColorCellBorderSize, outerColorCellBorderSize
-	static const WTL::CSize colorCellContentSize;
+	static const CSize colorCellContentSize;
 	//@}
 	//////////////////////////////////////////////////////////////////////
 
@@ -543,19 +543,19 @@ protected:
 		/// \brief <em>Holds the drop down color picker's margins</em>
 		///
 		/// \sa SetPickerWindowSize
-		WTL::CRect margins;
+		CRect margins;
 		/// \brief <em>Holds the "More Colors" text's bounding rectangle</em>
 		///
 		/// \sa pMoreColorsText, SetPickerWindowSize
-		WTL::CRect moreColorsTextBoundingRectangle;
+		CRect moreColorsTextBoundingRectangle;
 		/// \brief <em>Holds the "Automatic" text's bounding rectangle</em>
 		///
 		/// \sa pDefaultColorText, SetPickerWindowSize
-		WTL::CRect defaultColorTextBoundingRectangle;
+		CRect defaultColorTextBoundingRectangle;
 		/// \brief <em>Holds the bounding rectangle around the predefined color cells</em>
 		///
 		/// \sa predefinedColors, SetPickerWindowSize
-		WTL::CRect colorGridBoundingRectangle;
+		CRect colorGridBoundingRectangle;
 		/// \brief <em>Holds whether the drop down color picker has a 3D border or not</em>
 		///
 		/// \sa OnPickerPaint
@@ -563,7 +563,7 @@ protected:
 		/// \brief <em>Holds a color cell's size including inner and outer borders</em>
 		///
 		/// \sa SetPickerWindowSize
-		WTL::CSize colorCellSize;
+		CSize colorCellSize;
 		/// \brief <em>Holds whether the drop down color picker was cancelled or not</em>
 		///
 		/// \sa PopupPickerWindow

@@ -3364,7 +3364,7 @@ LRESULT StatusBar::OnSetCursor(UINT /*message*/, WPARAM /*wParam*/, LPARAM /*lPa
 	BOOL setCursor = FALSE;
 
 	// Are we really over the control?
-	WTL::CRect clientArea;
+	CRect clientArea;
 	GetClientRect(&clientArea);
 	ClientToScreen(&clientArea);
 	DWORD position = GetMessagePos();
@@ -3542,7 +3542,7 @@ LRESULT StatusBar::OnWindowPosChanged(UINT /*message*/, WPARAM /*wParam*/, LPARA
 {
 	LPWINDOWPOS pDetails = reinterpret_cast<LPWINDOWPOS>(lParam);
 
-	WTL::CRect windowRectangle = m_rcPos;
+	CRect windowRectangle = m_rcPos;
 	/* Ugly hack: We depend on this message being sent without SWP_NOMOVE at least once, but this requirement
 	              not always will be fulfilled. Fortunately pDetails seems to contain correct x and y values
 	              even if SWP_NOMOVE is set.
@@ -3661,7 +3661,7 @@ LRESULT StatusBar::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LPAR
 				VARIANT_BOOL rightToLeftText = VARIANT_FALSE;
 				pPanel->get_RightToLeftText(&rightToLeftText);
 
-				WTL::CRect textRectangle = pDetails->rcItem;
+				CRect textRectangle = pDetails->rcItem;
 
 				UINT numberOfPanels = SendMessage(SB_GETPARTS, 0, 0);
 				if(pDetails->itemID == numberOfPanels - 1) {
@@ -3698,12 +3698,12 @@ LRESULT StatusBar::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LPAR
 					GetIconInfo(hIcon, &iconInfo);
 					if(iconInfo.hbmColor) {
 						CBitmapHandle bmp = iconInfo.hbmColor;
-						WTL::CSize bitmapSize(0, 0);
+						CSize bitmapSize(0, 0);
 						bmp.GetSize(bitmapSize);
 						textRectangle.left += bitmapSize.cx + GetSystemMetrics(SM_CXEDGE) * 2;
 					} else if(iconInfo.hbmMask) {
 						CBitmapHandle bmp = iconInfo.hbmMask;
-						WTL::CSize bitmapSize(0, 0);
+						CSize bitmapSize(0, 0);
 						bmp.GetSize(bitmapSize);
 						textRectangle.left += bitmapSize.cx + GetSystemMetrics(SM_CXEDGE) * 2;
 					}
@@ -3740,7 +3740,7 @@ LRESULT StatusBar::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LPAR
 
 					targetDC.SetBkMode(TRANSPARENT);
 					if(enabled == VARIANT_FALSE) {
-						WTL::CRect offsetTextRectangle = textRectangle;
+						CRect offsetTextRectangle = textRectangle;
 						offsetTextRectangle.OffsetRect(1, 1);
 						COLORREF previousColor = targetDC.SetTextColor(GetSysColor(COLOR_3DHIGHLIGHT));
 						if(pBuffer) {

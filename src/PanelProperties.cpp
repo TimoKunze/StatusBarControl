@@ -48,7 +48,7 @@ STDMETHODIMP PanelProperties::Activate(HWND hWndParent, LPCRECT pRect, BOOL moda
 	controls.panelRTLTextCheck = GetDlgItem(IDC_PANELRTLTEXTCHECK);
 
 	// setup the toolbar
-	WTL::CRect toolbarRect;
+	CRect toolbarRect;
 	GetClientRect(&toolbarRect);
 	toolbarRect.OffsetRect(0, 2);
 	toolbarRect.left += toolbarRect.right - 46;
