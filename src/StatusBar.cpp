@@ -3088,11 +3088,11 @@ STDMETHODIMP StatusBar::HitTest(OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y, HitTestCon
 	}
 
 	if(IsWindow()) {
-		UINT flags = static_cast<UINT>(*pHitTestDetails);
-		int panelIndex = HitTest(x, y, &flags);
+		UINT hitTestFlags = static_cast<UINT>(*pHitTestDetails);
+		int panelIndex = HitTest(x, y, &hitTestFlags);
 
 		if(pHitTestDetails) {
-			*pHitTestDetails = static_cast<HitTestConstants>(flags);
+			*pHitTestDetails = static_cast<HitTestConstants>(hitTestFlags);
 		}
 		GetPanelObject(panelIndex, ppHitPanel);
 		return S_OK;
@@ -3737,16 +3737,16 @@ LRESULT StatusBar::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LPAR
 				}
 				if(themingEngine.IsThemeNull()) {
 					// don't use any theme
-					DWORD flags = DT_VCENTER | DT_SINGLELINE | DT_NOPREFIX | (rightToLeftText == VARIANT_FALSE ? 0 : DT_RTLREADING);
+					DWORD drawTextFlags = DT_VCENTER | DT_SINGLELINE | DT_NOPREFIX | (rightToLeftText == VARIANT_FALSE ? 0 : DT_RTLREADING);
 					switch(alignment) {
 						case alLeft:
-							flags |= DT_LEFT;
+							drawTextFlags |= DT_LEFT;
 							break;
 						case alCenter:
-							flags |= DT_CENTER;
+							drawTextFlags |= DT_CENTER;
 							break;
 						case alRight:
-							flags |= DT_RIGHT;
+							drawTextFlags |= DT_RIGHT;
 							break;
 					}
 
@@ -3756,9 +3756,9 @@ LRESULT StatusBar::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LPAR
 						offsetTextRectangle.OffsetRect(1, 1);
 						COLORREF previousColor = targetDC.SetTextColor(GetSysColor(COLOR_3DHIGHLIGHT));
 						if(pBuffer) {
-							targetDC.DrawText(pBuffer, -1, &offsetTextRectangle, flags);
+							targetDC.DrawText(pBuffer, -1, &offsetTextRectangle, drawTextFlags);
 							targetDC.SetTextColor(GetSysColor(COLOR_3DSHADOW));
-							targetDC.DrawText(pBuffer, -1, &textRectangle, flags);
+							targetDC.DrawText(pBuffer, -1, &textRectangle, drawTextFlags);
 						}
 						targetDC.SetTextColor(previousColor);
 					} else {
@@ -3767,33 +3767,33 @@ LRESULT StatusBar::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LPAR
 
 						if(foreColor == CLR_NONE) {
 							if(pBuffer) {
-								targetDC.DrawText(pBuffer, -1, &textRectangle, flags);
+								targetDC.DrawText(pBuffer, -1, &textRectangle, drawTextFlags);
 							}
 						} else {
 							if(pBuffer) {
 								COLORREF previousColor = targetDC.SetTextColor(OLECOLOR2COLORREF(foreColor));
-								targetDC.DrawText(pBuffer, -1, &textRectangle, flags);
+								targetDC.DrawText(pBuffer, -1, &textRectangle, drawTextFlags);
 								targetDC.SetTextColor(previousColor);
 							}
 						}
 					}
 				} else {
 					// use the current theme
-					DWORD flags = DT_VCENTER | DT_SINGLELINE | DT_NOPREFIX | (rightToLeftText == VARIANT_FALSE ? 0 : DT_RTLREADING);
+					DWORD drawTextFlags = DT_VCENTER | DT_SINGLELINE | DT_NOPREFIX | (rightToLeftText == VARIANT_FALSE ? 0 : DT_RTLREADING);
 					switch(alignment) {
 						case alLeft:
-							flags |= DT_LEFT;
+							drawTextFlags |= DT_LEFT;
 							break;
 						case alCenter:
-							flags |= DT_CENTER;
+							drawTextFlags |= DT_CENTER;
 							break;
 						case alRight:
-							flags |= DT_RIGHT;
+							drawTextFlags |= DT_RIGHT;
 							break;
 					}
 					if(enabled == VARIANT_FALSE) {
 						if(pBuffer) {
-							themingEngine.DrawThemeText(targetDC, BP_PUSHBUTTON, PBS_DISABLED, CT2W(pBuffer), -1, flags, DTT_GRAYED, &textRectangle);
+							themingEngine.DrawThemeText(targetDC, BP_PUSHBUTTON, PBS_DISABLED, CT2W(pBuffer), -1, drawTextFlags, DTT_GRAYED, &textRectangle);
 						}
 					} else {
 						OLE_COLOR foreColor = CLR_NONE;
@@ -3801,13 +3801,13 @@ LRESULT StatusBar::OnReflectedDrawItem(UINT /*message*/, WPARAM /*wParam*/, LPAR
 
 						if(foreColor == CLR_NONE) {
 							if(pBuffer) {
-								themingEngine.DrawThemeText(targetDC, SP_PANE, 1/*DEF_NORMAL*/, CT2W(pBuffer), -1, flags, 0, &textRectangle);
+								themingEngine.DrawThemeText(targetDC, SP_PANE, 1/*DEF_NORMAL*/, CT2W(pBuffer), -1, drawTextFlags, 0, &textRectangle);
 							}
 						} else {
 							targetDC.SetBkMode(TRANSPARENT);
 							if(pBuffer) {
 								COLORREF previousColor = targetDC.SetTextColor(OLECOLOR2COLORREF(foreColor));
-								targetDC.DrawText(pBuffer, -1, &textRectangle, flags);
+								targetDC.DrawText(pBuffer, -1, &textRectangle, drawTextFlags);
 								targetDC.SetTextColor(previousColor);
 							}
 						}
@@ -4949,34 +4949,34 @@ int StatusBar::HitTest(LONG x, LONG y, LPUINT pFlags)
 {
 	ATLASSERT(IsWindow());
 
-	UINT flags = 0;
+	UINT hitTestFlags = 0;
 	int panelIndex = -2;
 	RECT clientRectangle = {0};
 	GetClientRect(&clientRectangle);
 
 	if(x < clientRectangle.left) {
-		flags |= SBARHT_TOLEFT;
+		hitTestFlags |= SBARHT_TOLEFT;
 	} else if(x > clientRectangle.right) {
-		flags |= SBARHT_TORIGHT;
+		hitTestFlags |= SBARHT_TORIGHT;
 	}
 	if(y < clientRectangle.top) {
-		flags |= SBARHT_ABOVE;
+		hitTestFlags |= SBARHT_ABOVE;
 	} else if(y > clientRectangle.bottom) {
-		flags |= SBARHT_BELOW;
+		hitTestFlags |= SBARHT_BELOW;
 	}
 
-	if(flags == 0) {
+	if(hitTestFlags == 0) {
 		if(SendMessage(SB_ISSIMPLE, 0, 0)) {
 			panelIndex = -1;
-			flags = SBARHT_ONITEM;
+			hitTestFlags = SBARHT_ONITEM;
 		} else {
-			flags = SBARHT_NOWHERE;
+			hitTestFlags = SBARHT_NOWHERE;
 			int panels = SendMessage(SB_GETPARTS, 0, 0);
 			for(int i = 0; i < panels; ++i) {
 				RECT boundingRectangle = {0};
 				if(SendMessage(SB_GETRECT, i, reinterpret_cast<LPARAM>(&boundingRectangle))) {
 					if(x < boundingRectangle.right) {
-						flags = SBARHT_ONITEM;
+						hitTestFlags = SBARHT_ONITEM;
 						panelIndex = i;
 						break;
 					}
@@ -4986,7 +4986,7 @@ int StatusBar::HitTest(LONG x, LONG y, LPUINT pFlags)
 	}
 
 	if(pFlags) {
-		*pFlags = flags;
+		*pFlags = hitTestFlags;
 	}
 	return panelIndex;
 }
