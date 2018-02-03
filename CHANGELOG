@@ -1,3 +1,11 @@
+Version 1.5.4 - 04/02/2018
+
+- Fixed multiple memory leaks.
+- Upgraded to WTL 10.
+- Integrated the GitHub repository into the documentation and the About dialog.
+
+
+
 Version 1.5.3 - 15/01/2018
 
 - Project published on GitHub.

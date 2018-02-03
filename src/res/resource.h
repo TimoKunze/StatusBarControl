@@ -8,12 +8,12 @@
 
 #define VERSION_MAJOR																1
 #define VERSION_MINOR																5
-#define VERSION_REVISION1														3
+#define VERSION_REVISION1														4
 #define VERSION_REVISION2														0
-#define VERSION_BUILD																154
-#define STRFILEVERSION															"1.5.3.154"
+#define VERSION_BUILD																162
+#define STRFILEVERSION															"1.5.4.162"
 #define STRPRODUCTVERSION														"1.5"
-#define STRTIMESTAMP																"2018/01/15 22:35:18"
+#define STRTIMESTAMP																"2018/02/04 00:03:00"
 
 #define IDB_STATUSBAR																1
 #define IDB_ABOUT																		2
@@ -43,7 +43,7 @@
 #define IDC_SPECIALTHANKSTO													158
 #define IDC_MORE																		159
 #define IDC_HOMEPAGE																160
-#define IDC_BUGTRACKER															161
+#define IDC_GITHUB																	161
 #define IDC_PAYPAL																	162
 #define IDC_TOOLBAR																	163
 #define IDC_DISABLEDEVENTSBOX												164
